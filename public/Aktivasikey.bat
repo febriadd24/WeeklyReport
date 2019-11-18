@@ -1,0 +1,7 @@
+@Echo Off
+Set "out=C:\KTP"
+(
+  Echo;[Setting]
+  Echo;PC=111222363344555666
+  Echo;CON=1231321231321321321321321231321321321321321321
+) > "%out%\config.ini"

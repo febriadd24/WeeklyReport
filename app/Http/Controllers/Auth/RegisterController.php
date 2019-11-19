@@ -73,6 +73,8 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'active' => false,
             'activation_token' => str_random(225),
+            'Department' => $data['Department'],
+            'Foto' => $data['email'].'.jpg',
 
         ]);
         Mail::to($data['email'])->send(new ActivationEmail($user));

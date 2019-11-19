@@ -46,7 +46,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>S</b>AM</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>SAM Aktivasi</b></span>
+      <span class="logo-lg"><b>Weekly Report</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -252,8 +252,8 @@
           </ul>
         </li>--}}
         <li>
-          <a href="{{route('product.index')}}">
-            <i class="fa fa-th"></i> <span>Product</span>
+          <a href="{{route('report.index')}}">
+            <i class="fa fa-th"></i> <span>Report</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">!!</small>
             </span>

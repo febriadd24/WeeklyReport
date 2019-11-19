@@ -15,8 +15,8 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/product','ProductController@kirim');
-Route::resource('/product','ProductController');
+
+Route::resource('/report','reportController');
 Route::get('admin/sam','adminsamController@kirim');
 Route::get('admin/sam','adminsamController@download');
 Route::resource('admin/sam','adminsamController');
@@ -25,14 +25,14 @@ Route::resource('/user','UserController');
 Route::get('/samkey','SamController@download');
 Route::get('/samkey','SamController@kirim');
 Route::resource('/samkey','SamController');
-// Route::resource('/product/form','provController');
-Route::get('kab/{id}','ProductController@getTowns');
+// Route::resource('/report/form','provController');
+Route::get('kab/{id}','reportController@getTowns');
 Route::get('/table/user', 'UserController@dataTable')->name('table.user');
-Route::get('/table/Product', 'ProductController@dataTable')->name('table.Product');
+Route::get('/table/report', 'reportController@dataTable')->name('table.report');
 Route::get('/table/Produk', 'adminprodukController@dataTable')->name('table.Produk');
 Route::get('/table/sam', 'adminsamController@dataTable')->name('table.sam');
 Route::get('/table/samkey', 'SamController@dataTable')->name('table.samkey');
-Route::PATCH('/table/Product{id}', 'ProductController@kirim')->name('table.kirim');
+Route::PATCH('/table/report{id}', 'reportController@kirim')->name('table.kirim');
 Route::PATCH('/table/sam{id}', 'adminsamController@kirim')->name('table.kirimsam');
 Route::get('/table/sam{id}', 'adminsamController@kirim')->name('table.download');
 Auth::routes();

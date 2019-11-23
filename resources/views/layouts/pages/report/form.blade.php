@@ -18,6 +18,11 @@
 
 {{-- {!! Form::hidden('_method',['value'=>'PUT'])!!} --}}
             <!-- text input -->
+            <div class="form-group">
+                    <label>Days</label>
+                    {!! Form::select('Days',array('Monday' =>'Monday' ,'Tuesday' =>'Tuesday' ,
+                    'Wednesday' =>'Wednesday' ,'Thursday' =>'Thursday','Friday' =>'Friday','Saturday' =>'Saturday','Sunday' =>'Sunday',)) !!}
+                </div>
 
             <div class="form-group">
                 <label>Project</label>

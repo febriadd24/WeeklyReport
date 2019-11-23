@@ -40,9 +40,13 @@ class ReportController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
+
+            'Days' => 'required',
             'Project' => 'required|string|max:75',
             'Activity' => 'required|string|max:100',
+            'Status' => 'required',
         ]);
+
         $Project=$request->input('Project');
         $Activity=$request->input('Activity');
         $detail=$request->input('Detail');
@@ -51,9 +55,10 @@ class ReportController extends Controller
         // $Attach=$request->file('File')->storeAs('public/', $filename);
         $Status=$request->input('Status');
         $userid=$request->input('User_id');
-
+        $Days=$request->input('Days');
 
          $model = new report([
+            'Days'=>$Days,
              'Project'=>$Project,
              'Activity'=>$Activity,
              'Detail'=>$detail,
@@ -101,8 +106,10 @@ class ReportController extends Controller
     {
         //
         $this->validate($request,[
+            'Days' => 'required',
             'Project' => 'required|string|max:75',
-            'Activity' => 'required|string|max:75'
+            'Activity' => 'required|string|max:100',
+            'Status' => 'required',
             // |unique:reports,SN_Device'
         ]);
         $model= report::findOrFail($id);
@@ -127,13 +134,15 @@ class ReportController extends Controller
             $todate=$request->get('end_date');
 if (is_null($from) or is_null($todate))
 {
-    $model = report::with('DataUser')->get();
+    $model = report::with('DataUser')
+      ->get();
 } else
 {
     $model = report::with('DataUser')
         ->whereDate('created_at','>=',$from)
         ->whereDate('created_at','<=',$todate)
         ->where('User_id','=',Auth::user()->name)
+        // ->groupBy('Days')
         ->get();
 
 }

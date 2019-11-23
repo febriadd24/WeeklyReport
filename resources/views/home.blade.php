@@ -25,7 +25,7 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
-                <h3>150</h3>
+                <h3>{{$counts}}</h3>
 
                 <p>Daftar Sam Card</p>
             </div>

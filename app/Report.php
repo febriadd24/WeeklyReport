@@ -12,6 +12,6 @@ class report extends Model
        return $this->belongsTo('App\User','User_id');
     }
     protected $fillable = [
-    'id','Project','Activity','Detail','Status','Remarks','File','User_id','created_at','updated_at'
+    'id','Project','Activity','Detail','Status','Remarks','File','User_id','created_at','updated_at','Days',
     ];
 }

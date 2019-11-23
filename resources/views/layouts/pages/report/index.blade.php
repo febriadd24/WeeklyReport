@@ -29,9 +29,11 @@
              aria-describedby="example1_info" style="width:100%">
                 <thead>
                 <tr>
+                    <th>Days</th>
                     <th>Project</th>
                     <th>Activity</th>
                     <th>Status</th>
+                    <th>Created_at</th>
                     <th>Detail</th>
                     <th>Remarks</th>
                     <th>action</th>
@@ -43,9 +45,11 @@
                 </tbody>
                 <tfoot>
                 <tr>
+                    <th>Days</th>
                     <th>Project</th>
                     <th>Activity</th>
                     <th>Status</th>
+                    <th>Created_at</th>
                     <th>Detail</th>
                     <th>Remarks</th>
                     <th>action</th>
@@ -71,9 +75,11 @@
             }
             },
             columns: [
+                {data: 'Days', name: 'Days'},
                 {data: 'Project', name: 'Project'},
                 {data: 'Activity', name: 'Activity'},
                 {data: 'Status', name: 'Status'},
+                {data: 'created_at', name: 'created_at'},
                 {data: 'Detail', name: 'Detail'},
                 {data: 'Remarks', name: 'Remarks'},
                 {data: 'action', name: 'action'},

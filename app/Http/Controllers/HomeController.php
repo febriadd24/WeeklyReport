@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+use App\report;
 
 class HomeController extends Controller
 {
@@ -24,5 +27,34 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+    public function Alltoday()
+    {
+        $mytime = Carbon::now();
+
+$counts = report::with('DataUser')
+            ->whereDate('created_at','>=',$mytime->startOfWeek())
+            ->whereDate('created_at','<=',$mytime->endOfWeek())
+           ->count();
+
+            $countsIn = DB::table('Reports')
+            ->whereDate('created_at','>=',$mytime->startOfWeek())
+            ->whereDate('created_at','<=',$mytime->endOfWeek())
+           ->count();
+
+
+            $countsOut = DB::table('Reports')
+            ->whereDate('created_at','>=',$mytime->startOfWeek())
+            ->whereDate('created_at','<=',$mytime->endOfWeek())
+           ->count();
+
+
+             $countsMiss = DB::table('Reports')
+             ->whereDate('created_at','>=',$mytime->startOfWeek())
+            ->whereDate('created_at','<=',$mytime->endOfWeek())
+           ->count();
+
+
+            return view('home',compact('counts','countsIn','countsOut','countsMiss'));
     }
 }

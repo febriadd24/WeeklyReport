@@ -3,29 +3,28 @@
 namespace App\Events\Auth;
 
 use Illuminate\Queue\SerializesModels;
-use App\User;
-
+use App\Admin;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
 
-class UserActivationEmail
+class UserActivationEmailAdmin
 {
     use Dispatchable, SerializesModels;
-    public $user;
 
+    public $Admin;
     /**
      * Create a new event instance.
      *
      * @return void
      */
 
-    public function __construct(User $user)
+    public function __construct(Admin $Admin)
     {
         //
-        $this ->user = $user;
 
+        $this ->Admin = $Admin;
     }
 
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\report;
+use App\User;
 use DB;
 use DataTables;
 use Illuminate\Support\Facades\Auth;
@@ -135,13 +136,14 @@ class ReportController extends Controller
 if (is_null($from) or is_null($todate))
 {
     $model = report::with('DataUser')
+    ->where('User_id','=',Auth::user()->name)
       ->get();
 } else
 {
     $model = report::with('DataUser')
+    ->where('User_id','=',Auth::user()->name)
         ->whereDate('created_at','>=',$from)
         ->whereDate('created_at','<=',$todate)
-        ->where('User_id','=',Auth::user()->name)
         // ->groupBy('Days')
         ->get();
 

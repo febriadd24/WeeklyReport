@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Eloquent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\report;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -32,9 +33,12 @@ class HomeController extends Controller
     {
         $mytime = Carbon::now();
 
+// $counts = report::with(['User' =>function($query){
+//     $query->where('Department','like','%Marketing%');
+// }])
 $counts = report::with('DataUser')
-            ->whereDate('created_at','>=',$mytime->startOfWeek())
-            ->whereDate('created_at','<=',$mytime->endOfWeek())
+            ->whereDate('created_at','>',$mytime->startOfWeek())
+            ->whereDate('created_at','<',$mytime->endOfWeek())
            ->count();
 
             $countsIn = DB::table('Reports')
@@ -56,5 +60,6 @@ $counts = report::with('DataUser')
 
 
             return view('home',compact('counts','countsIn','countsOut','countsMiss'));
+            return view('admin',compact('counts','countsIn','countsOut','countsMiss'));
     }
 }

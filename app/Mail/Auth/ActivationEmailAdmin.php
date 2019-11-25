@@ -6,12 +6,12 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\User;
+use App\Admin;
 
-class ActivationEmail extends Mailable
+class ActivationEmailAdmin extends Mailable
 {
     use Queueable, SerializesModels;
-    public $user;
+    public $Admin;
 
 
     /**
@@ -19,9 +19,9 @@ class ActivationEmail extends Mailable
      *
      * @return void
      */
-    public function __construct(User $user)
+    public function __construct(Admin $Admin)
     {
-        $this ->user = $user;
+        $this ->Admin = $Admin;
 
     }
 

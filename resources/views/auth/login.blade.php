@@ -33,11 +33,11 @@
 <body>
 <div class="container" align="center">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <h1 align="center">Login Form</h1>
-                <div class="card-header">{{ __('Login') }}</div>
-
+        <div class="login-box">
+            <div class="login-box-body">
+                <h2 align="center">Weekly Report</h2>
+                {{-- <div class="card-header"><h4>{{ __('Login') }}</h4></div> --}}
+                <div class="card-header"> {{ isset($url) ? ucwords($url) : ""}} {{ __('Login') }}</div>
                 <div class="card-body"  align="center">
                     <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
                         @csrf
@@ -72,18 +72,19 @@
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
+                                {{-- <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
                                         {{ __('Remember Me') }}
                                     </label>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
+
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>

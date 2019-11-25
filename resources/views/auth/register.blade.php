@@ -32,15 +32,18 @@
 </head>
 <body>
 <div class="container">
-    <h2>Register Account</h2>
+
     <div class="row justify-content-center">
-
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('') }}</div>
-
+            <div class="register-box">
+                {{-- <div class="card-header">{{ __('') }}</div> --}}
+                <div class="card-header"> {{ isset($url) ? ucwords($url) : ""}} <h2>{{ __('Register') }}</h2></div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
+                        @isset($url)
+                        <form method="POST" action='{{ url("Auth/Register/$url") }}' aria-label="{{ __('Register') }}">
+                            @else
+                            <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
+                                    @endisset
                         @csrf
 
                         <div class="form-group row">
@@ -92,6 +95,22 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">{{ __('Department') }}</label>
+
+                        <div class="col-md-6">
+                                <select id="Department" name="Department" class="form-control">
+                                  <option>Marketing</option>
+                                  <option>Admin</option>
+                                  <option>Technical Support</option>
+                                  <option>Fianance</option>
+                                  <option>Stephen Office</option>
+                                  <option>HRD</option>
+                                </select>
+                            </div>
+                            </div>
+
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

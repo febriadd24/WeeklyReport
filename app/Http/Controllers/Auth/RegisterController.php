@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 use Mail;
 use App\User;
+use App\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -11,6 +12,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use App\Events\Auth\UserActivationEmail;
 use App\Mail\Auth\ActivationEmail;
+use App\Mail\Auth\ActivationEmailAdmin;
 
 class RegisterController extends Controller
 {
@@ -42,8 +44,13 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->middleware('guest:admin');
     }
 
+    public function showAdminRegisterForm()
+    {
+        return view('auth.register', ['url' => 'Admin']);
+    }
     /**
      * Get a validator for an incoming registration request.
      *
@@ -84,6 +91,32 @@ class RegisterController extends Controller
     {
         //send email
 event (new UserActivationEmail($user));
+
+        $this->guard()->logout();
+        return redirect()->route('login')->with('Success','Periksa email anda dan lakukan aktivasi akun');
+    }
+
+
+    protected function createAdmin(Request $request)
+    {
+        $this->validator($request->all())->validate();
+       $admin = Admin::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+            'active' => false,
+            'activation_token' => str_random(225),
+            'Foto' => $request['email'].'.jpg',
+
+        ]);
+        Mail::to($request['email'])->send(new ActivationEmailAdmin($admin));
+        return $admin;
+    }
+
+    protected function registeredAdmin(Request $request, $admin)
+    {
+        //send email
+event (new UserActivationEmailAdmin($admin));
 
         $this->guard()->logout();
         return redirect()->route('login')->with('Success','Periksa email anda dan lakukan aktivasi akun');

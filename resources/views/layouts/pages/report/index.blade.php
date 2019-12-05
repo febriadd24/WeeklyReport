@@ -20,10 +20,6 @@
                         <div class="controls">
                             <input type="date" name="end_date" id="end_date" class="form-control datepicker-autoclose" placeholder="01/01/2018"> <div class="help-block"></div></div>
                         </div>
-                        <div class="text-left" style="margin-top: 25px;">
-                        <button type="submit" id="btnFiterSubmitSearch" class="btn btn-info">Submit</button>
-                        </div>
-                </div>
             </form>
             <table id="datatable" class="table table-bordered table-striped dataTable" role="grid" role="grid"
              aria-describedby="example1_info" style="width:100%">

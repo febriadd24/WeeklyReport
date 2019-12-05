@@ -58,8 +58,7 @@ $counts = report::with('DataUser')
             ->whereDate('created_at','<=',$mytime->endOfWeek())
            ->count();
 
-
+        //    return view('admin',compact('counts','countsIn','countsOut','countsMiss'));
             return view('home',compact('counts','countsIn','countsOut','countsMiss'));
-            return view('admin',compact('counts','countsIn','countsOut','countsMiss'));
     }
 }

@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+use App\report;
+use App\Admin;
+
 
 class AdminController extends Controller
 {
@@ -23,5 +28,37 @@ class AdminController extends Controller
     public function index()
     {
         return view('admin');
+    }
+    public function Admintoday()
+    {
+        $mytime = Carbon::now();
+
+// $counts = report::with(['User' =>function($query){
+//     $query->where('Department','like','%Marketing%');
+// }])
+$counts = report::with('DataUser')
+            ->whereDate('created_at','>',$mytime->startOfWeek())
+            ->whereDate('created_at','<',$mytime->endOfWeek())
+           ->count();
+
+            $countsIn = DB::table('Reports')
+            ->whereDate('created_at','>=',$mytime->startOfWeek())
+            ->whereDate('created_at','<=',$mytime->endOfWeek())
+           ->count();
+
+
+            $countsOut = DB::table('Reports')
+            ->whereDate('created_at','>=',$mytime->startOfWeek())
+            ->whereDate('created_at','<=',$mytime->endOfWeek())
+           ->count();
+
+
+             $countsMiss = DB::table('Reports')
+             ->whereDate('created_at','>=',$mytime->startOfWeek())
+            ->whereDate('created_at','<=',$mytime->endOfWeek())
+           ->count();
+
+        //    return view('admin',compact('counts','countsIn','countsOut','countsMiss'));
+            return view('admin',compact('counts','countsIn','countsOut','countsMiss'));
     }
 }

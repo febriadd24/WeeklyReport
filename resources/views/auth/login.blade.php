@@ -39,7 +39,11 @@
                 {{-- <div class="card-header"><h4>{{ __('Login') }}</h4></div> --}}
                 <div class="card-header"> {{ isset($url) ? ucwords($url) : ""}} {{ __('Login') }}</div>
                 <div class="card-body"  align="center">
-                    <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
+                    @isset($url)
+                    <form method="POST" action='{{ url("/login/$url") }}' aria-label="{{ __('Login') }}">
+                        @else
+                        <form method="POST" action="{{ route('auth.login') }}" aria-label="{{ __('Login') }}">
+                                @endisset
                         @csrf
 
                         <div class="form-group row">
@@ -72,13 +76,13 @@
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
-                                {{-- <div class="form-check">
+                                <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
                                         {{ __('Remember Me') }}
                                     </label>
-                                </div> --}}
+                                </div>
                             </div>
                         </div>
 

@@ -148,6 +148,17 @@ if (is_null($from) or is_null($todate))
     $model = report::with('DataUser')
       ->get();
 }
+elseif($Username != 0)
+{
+    $model = report::leftJoin('Users', function($join) {
+        $join->on('reports.User_id', '=', 'Users.name');
+      })
+      ->where('Users.name','like',$Username)
+        ->whereDate('reports.created_at','>=',$from)
+        ->whereDate('reports.created_at','<=',$todate)
+        ->get();
+
+}
 elseif($Department != 'Select' )
 {
     $model = report::leftJoin('Users', function($join) {

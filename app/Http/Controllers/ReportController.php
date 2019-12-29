@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 use App\report;
 use App\User;
 use DB;
-use DataTables;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Yajra\DataTables\DataTables;
 
 class ReportController extends Controller
 {

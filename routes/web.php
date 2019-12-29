@@ -43,6 +43,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/Admin','Auth\LoginController@showAdminLoginForm');
 Route::post('/login/admin','Auth\LoginController@adminLogin');
 Route::get('Auth/login','Auth\LoginController@showLoginForm')->name('auth.login');
+Route::post('user/login','Auth\LoginController@validateLogin')->name('user.login');
 Route::get('Auth/Register','Auth\RegisterController@showRegistrationForm')->name('auth.register');
  Route::get('Auth/Register/Admin','Auth\RegisterController@showAdminRegisterForm')->name('auth.adminregister');
 // Route::post('Auth/Register/Admin','Auth\RegisterController@createAdmin');

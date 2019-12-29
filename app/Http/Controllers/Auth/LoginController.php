@@ -81,7 +81,19 @@ public function showAdminLoginForm()
             'password' => 'required|string',
         ],[
             $this->username().'.exists'=> 'Email ini Invalid atau belum Aktif'
+
+
     ]);
+
+
+    if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
+
+        return redirect()->intended('/home');
+    }
+    else {
+
+    }
+    return back()->withInput($request->only('email', 'remember'));
     }
 
     public function logout(Request $request)

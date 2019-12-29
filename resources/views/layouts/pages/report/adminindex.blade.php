@@ -38,7 +38,7 @@
                             <div class="form-group col-md-3">
                                 <label>By Employee<span class="text-danger"></span></label>
                                 <div class="controls">
-                {!!Form::select('User_id',$userID,null,['name'=>'User_id'])!!}
+                {!!Form::select('User_id',$username,$userID,['name'=>'User_id'])!!}
                                 </div>
 
                 </div>

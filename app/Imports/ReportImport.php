@@ -15,12 +15,12 @@ class ReportImport implements ToModel
     *
     * @return \Illuminate\Database\Eloquent\Model|null
     */
-    public function model(array $row, Request $request)
+    public function model(array $row)
     {
 
         return new Report([
             'Project' => $row[1],'Activity'=> $row[2],'Detail'=> $row[3],
-            'Status'=> $row[6],'Remarks'=> $row[5],'User_id'=> Auth::user()->name,'Days'=> $row[0],
+            'Status'=> $row[5],'Remarks'=> $row[4],'User_id'=> Auth::user()->name,'Days'=> $row[0],
         ]);
     }
 }

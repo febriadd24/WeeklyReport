@@ -20,9 +20,9 @@ class AdminReportController extends Controller
     public function index()
     {
         $Dept = User::pluck('Department');
-$username=User::pluck('name');
+$username=User::all('name');
 $userID=User::pluck('id');
-        return view('layouts.pages.report.adminindex',compact('Dept','userID','username'));
+        return view('layouts.pages.report.adminindex',compact('Dept','userID','username',$username));
     }
 
     /**
@@ -143,18 +143,18 @@ $userID=User::pluck('id');
         $from=$request->get('start_date');
             $todate=$request->get('end_date');
             $Department=$request->get('Department');
-            $Username=$request->get('User_id');
+            $Username=$request->get('UserID');
 if (is_null($from) or is_null($todate))
 {
     $model = report::with('DataUser')
       ->get();
 }
-elseif($Username != 0)
+elseif($Username != 'All')
 {
     $model = report::leftJoin('Users', function($join) {
         $join->on('reports.User_id', '=', 'Users.name');
       })
-      ->where('Users.id','=',$Username)
+      ->where('Users.name','like',$Username)
         ->whereDate('reports.created_at','>=',$from)
         ->whereDate('reports.created_at','<=',$todate)
         ->get();

@@ -26,7 +26,7 @@
             <div class="inner">
                 <h3>{{$counts}}</h3>
 
-                <p>Daftar Sam Card</p>
+                <p>Job Done</p>
             </div>
             <div class="icon">
                 <i class="fa fa-shopping-cart"></i>
@@ -43,7 +43,7 @@
             <div class="inner">
                 <h3>{{$countsIn}}<sup style="font-size: 20px"></sup></h3>
 
-                <p>Sam Aktif</p>
+                <p>Job In Progress</p>
             </div>
             <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -60,7 +60,7 @@
             <div class="inner">
                 <h3>44</h3>
 
-                <p>Menunggu Akifasi</p>
+                <p>Job On Hold</p>
             </div>
             <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -77,7 +77,7 @@
             <div class="inner">
                 <h3>65</h3>
 
-                <p>SAM Non Aktif</p>
+                <p>Job Stuck</p>
             </div>
             <div class="icon">
                 <i class="ion ion-pie-graph"></i>

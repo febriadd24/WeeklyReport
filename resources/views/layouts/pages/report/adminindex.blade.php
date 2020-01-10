@@ -29,7 +29,7 @@
                                     <option>Marketing</option>
                                     <option>Admin</option>
                                     <option>Technical Support</option>
-                                    <option>Fianance</option>
+                                    <option>Finance</option>
                                     <option>Stephen Office</option>
                                     <option>HRD</option>
                                   </select>
@@ -38,7 +38,13 @@
                             <div class="form-group col-md-3">
                                 <label>By Employee<span class="text-danger"></span></label>
                                 <div class="controls">
-                {!!Form::select('User_id',$username,$userID,['name'=>'User_id'])!!}
+                                        <select id="User_id" name="User_id" class="form-control">
+                                                <option value="All">All</option>
+                                        @foreach($username as $usern)
+                                        <option value="{{ $usern->name }}">{{ $usern->name }}</option>
+                                        @endforeach
+                                        </select>
+                {{-- {!!Form::select('User_id',$username,null,['name'=>'User_id','Select'])!!} --}}
                                 </div>
 
                 </div>
@@ -108,8 +114,10 @@
                 {data: 'Detail', name: 'Detail'},
                 {data: 'Remarks', name: 'Remarks'},
                 {data: 'action', name: 'action'},
-
             ]
+        //     rowGroup: {
+        //     dataSrc: 'Days'
+        // }
         });
         $('#search-form').on('submit', function(e) {
         oTable.draw();

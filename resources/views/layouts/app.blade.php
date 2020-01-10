@@ -205,6 +205,14 @@
             </span>
           </a>
         </li>
+        <li>
+            <a href="{{route('importview')}}">
+              <i class="fa fa-th"></i> <span>Import Excel</span>
+              <span class="pull-right-container">
+                <small class="label pull-right bg-green">!!</small>
+              </span>
+            </a>
+          </li>
        {{-- <li class="treeview">
           <a href="#">
             <i class="fa fa-pie-chart"></i>

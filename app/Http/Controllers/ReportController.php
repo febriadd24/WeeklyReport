@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Yajra\DataTables\DataTables;
 
+
 class ReportController extends Controller
 {
     /**
@@ -167,4 +168,7 @@ if (is_null($from) or is_null($todate))
             ->rawColumns(['action'])
             ->make(true);
     }
+
+
+
 }

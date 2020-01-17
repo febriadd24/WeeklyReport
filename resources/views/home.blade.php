@@ -26,7 +26,7 @@
             <div class="inner">
                 <h3>{{$counts}}</h3>
 
-                <p>Daftar Sam Card</p>
+                <p>Marketing</p>
             </div>
             <div class="icon">
                 <i class="fa fa-shopping-cart"></i>
@@ -43,7 +43,7 @@
             <div class="inner">
                 <h3>{{$countsIn}}<sup style="font-size: 20px"></sup></h3>
 
-                <p>Sam Aktif</p>
+                <p>Admin</p>
             </div>
             <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -56,11 +56,26 @@
     <!-- ./col -->
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
+        <div class="small-box bg-blue">
+            <div class="inner">
+                <h3>44</h3>
+                <p>Technical Support</p>
+            </div>
+            <div class="icon">
+                <i class="fa fa-laptop"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+                More info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
         <div class="small-box bg-yellow">
             <div class="inner">
                 <h3>44</h3>
-
-                <p>Menunggu Akifasi</p>
+                <p>HRD</p>
             </div>
             <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -77,7 +92,7 @@
             <div class="inner">
                 <h3>65</h3>
 
-                <p>SAM Non Aktif</p>
+                <p>Finance</p>
             </div>
             <div class="icon">
                 <i class="ion ion-pie-graph"></i>

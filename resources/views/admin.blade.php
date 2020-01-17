@@ -24,9 +24,13 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
-                <h3>{{$counts}}</h3>
+                <h3>{{$MKT}}</h3>
 
+<<<<<<< HEAD
                 <p>Job Done</p>
+=======
+                <p>Marketing</p>
+>>>>>>> ac6359a3924165f7a39517665e764cc05e56b84d
             </div>
             <div class="icon">
                 <i class="fa fa-shopping-cart"></i>
@@ -41,9 +45,13 @@
         <!-- small box -->
         <div class="small-box bg-green">
             <div class="inner">
-                <h3>{{$countsIn}}<sup style="font-size: 20px"></sup></h3>
+                <h3>{{$TC}}<sup style="font-size: 20px"></sup></h3>
 
+<<<<<<< HEAD
                 <p>Job In Progress</p>
+=======
+                <p>Technical Support</p>
+>>>>>>> ac6359a3924165f7a39517665e764cc05e56b84d
             </div>
             <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -58,9 +66,13 @@
         <!-- small box -->
         <div class="small-box bg-yellow">
             <div class="inner">
-                <h3>44</h3>
+                <h3>{{$HRD}}</h3>
 
+<<<<<<< HEAD
                 <p>Job On Hold</p>
+=======
+                <p>HRD</p>
+>>>>>>> ac6359a3924165f7a39517665e764cc05e56b84d
             </div>
             <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -73,11 +85,34 @@
     <!-- ./col -->
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
+        <div class="small-box bg-blue">
+            <div class="inner">
+                <h3>{{$ADM}}</h3>
+
+                <p>Admin</p>
+            </div>
+            <div class="icon">
+                <i class="fa fa-sticky-note"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+                More info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+    <!-- ./col -->
+
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
         <div class="small-box bg-red">
             <div class="inner">
-                <h3>65</h3>
+                <h3>{{$FNC}}</h3>
 
+<<<<<<< HEAD
                 <p>Job Stuck</p>
+=======
+                <p>Finance</p>
+>>>>>>> ac6359a3924165f7a39517665e764cc05e56b84d
             </div>
             <div class="icon">
                 <i class="ion ion-pie-graph"></i>

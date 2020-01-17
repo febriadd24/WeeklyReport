@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>IDPAY Aktivasi </title>
+    <title>Weekly Report IDPAY </title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -41,6 +41,7 @@
                 <div class="card-body"  align="center">
                     @isset($url)
                     <form method="POST" action='{{ url("/login/$url") }}' aria-label="{{ __('Login') }}">
+                        {{-- <form method="POST" action="{{ route('auth.login') }}" aria-label="{{ __('Login') }}"> --}}
                         @else
                         <form method="POST" action="{{ route('user.login') }}" aria-label="{{ __('Login') }}">
                                 @endisset

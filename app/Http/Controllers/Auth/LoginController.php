@@ -99,6 +99,7 @@ public function showAdminLoginForm()
     public function logout(Request $request)
     {
        Auth::guard('web')->logout();
+       Auth::guard('admin')->logout();
         return redirect('/');
     }
 }

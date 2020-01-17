@@ -26,11 +26,7 @@
             <div class="inner">
                 <h3>{{$MKT}}</h3>
 
-<<<<<<< HEAD
-                <p>Daftar Sam Card</p>
-=======
                 <p>Marketing</p>
->>>>>>> finish Homepage/adminpage
             </div>
             <div class="icon">
                 <i class="fa fa-shopping-cart"></i>
@@ -47,11 +43,7 @@
             <div class="inner">
                 <h3>{{$TC}}<sup style="font-size: 20px"></sup></h3>
 
-<<<<<<< HEAD
-                <p>Sam Aktif</p>
-=======
                 <p>Technical Support</p>
->>>>>>> finish Homepage/adminpage
             </div>
             <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -68,11 +60,7 @@
             <div class="inner">
                 <h3>{{$HRD}}</h3>
 
-<<<<<<< HEAD
-                <p>Menunggu Akifasi</p>
-=======
                 <p>HRD</p>
->>>>>>> finish Homepage/adminpage
             </div>
             <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -108,11 +96,7 @@
             <div class="inner">
                 <h3>{{$FNC}}</h3>
 
-<<<<<<< HEAD
-                <p>SAM Non Aktif</p>
-=======
                 <p>Finance</p>
->>>>>>> finish Homepage/adminpage
             </div>
             <div class="icon">
                 <i class="ion ion-pie-graph"></i>

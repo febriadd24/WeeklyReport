@@ -36,44 +36,44 @@ class AdminController extends Controller
 // $counts = report::with(['User' =>function($query){
 //     $query->where('Department','like','%Marketing%');
 // }])
-$MKT =report::leftJoin('Users', function($join) {
-    $join->on('reports.User_id', '=', 'Users.name');
+$MKT =report::leftJoin('users', function($join) {
+    $join->on('reports.User_id', '=', 'users.name');
   })
-  ->where('Users.Department','like','%Marketing%')
+  ->where('users.Department','like','%Marketing%')
     ->whereDate('reports.created_at','>=',$mytime->startOfWeek())
     ->whereDate('reports.created_at','<=',$mytime->endOfWeek())
     ->count();
 
-            $TC = report::leftJoin('Users', function($join) {
-                $join->on('reports.User_id', '=', 'Users.name');
+            $TC = report::leftJoin('users', function($join) {
+                $join->on('reports.User_id', '=', 'users.name');
               })
-              ->where('Users.Department','like','%Technical%')
+              ->where('users.Department','like','%Technical%')
                 ->whereDate('reports.created_at','>=',$mytime->startOfWeek())
                 ->whereDate('reports.created_at','<=',$mytime->endOfWeek())
                 ->count();
 
 
-            $HRD = report::leftJoin('Users', function($join) {
-                $join->on('reports.User_id', '=', 'Users.name');
+            $HRD = report::leftJoin('users', function($join) {
+                $join->on('reports.User_id', '=', 'users.name');
               })
-              ->where('Users.Department','like','%HRD%')
+              ->where('users.Department','like','%HRD%')
                 ->whereDate('reports.created_at','>=',$mytime->startOfWeek())
                 ->whereDate('reports.created_at','<=',$mytime->endOfWeek())
                 ->count();
 
 
-             $ADM = report::leftJoin('Users', function($join) {
-                $join->on('reports.User_id', '=', 'Users.name');
+             $ADM = report::leftJoin('users', function($join) {
+                $join->on('reports.User_id', '=', 'users.name');
               })
-              ->where('Users.Department','like','%Admin%')
+              ->where('users.Department','like','%Admin%')
                 ->whereDate('reports.created_at','>=',$mytime->startOfWeek())
                 ->whereDate('reports.created_at','<=',$mytime->endOfWeek())
                 ->count();
 
-                $FNC = report::leftJoin('Users', function($join) {
-                    $join->on('reports.User_id', '=', 'Users.name');
+                $FNC = report::leftJoin('users', function($join) {
+                    $join->on('reports.User_id', '=', 'users.name');
                   })
-                  ->where('Users.Department','like','%finance%')
+                  ->where('users.Department','like','%finance%')
                     ->whereDate('reports.created_at','>=',$mytime->startOfWeek())
                     ->whereDate('reports.created_at','<=',$mytime->endOfWeek())
                     ->count();

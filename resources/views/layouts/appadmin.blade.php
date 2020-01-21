@@ -101,7 +101,7 @@
                 <img src="../../assets/AdmiLte/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                    Admin - User
+                    {{Auth::user()->name}}- Admin
                   <small>IDPAY</small>
                 </p>
               </li>

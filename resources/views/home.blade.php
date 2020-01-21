@@ -24,7 +24,7 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
-                <h3>{{$counts}}</h3>
+                <h3>{{$MKT}}</h3>
 
                 <p>Marketing</p>
             </div>
@@ -41,7 +41,7 @@
         <!-- small box -->
         <div class="small-box bg-green">
             <div class="inner">
-                <h3>{{$countsIn}}<sup style="font-size: 20px"></sup></h3>
+                <h3>{{$ADM}}<sup style="font-size: 20px"></sup></h3>
 
                 <p>Admin</p>
             </div>
@@ -58,7 +58,7 @@
         <!-- small box -->
         <div class="small-box bg-blue">
             <div class="inner">
-                <h3>44</h3>
+                <h3>{{$TC}}</h3>
                 <p>Technical Support</p>
             </div>
             <div class="icon">
@@ -74,7 +74,7 @@
         <!-- small box -->
         <div class="small-box bg-yellow">
             <div class="inner">
-                <h3>44</h3>
+                <h3>{{$HRD}}</h3>
                 <p>HRD</p>
             </div>
             <div class="icon">
@@ -90,7 +90,7 @@
         <!-- small box -->
         <div class="small-box bg-red">
             <div class="inner">
-                <h3>65</h3>
+                <h3>{{$FNC}}</h3>
 
                 <p>Finance</p>
             </div>

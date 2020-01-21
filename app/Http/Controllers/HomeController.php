@@ -36,29 +36,49 @@ class HomeController extends Controller
 // $counts = report::with(['User' =>function($query){
 //     $query->where('Department','like','%Marketing%');
 // }])
-$counts = report::with('DataUser')
-            ->whereDate('created_at','>',$mytime->startOfWeek())
-            ->whereDate('created_at','<',$mytime->endOfWeek())
-           ->count();
+$MKT =report::leftJoin('users', function($join) {
+    $join->on('reports.User_id', '=', 'users.name');
+  })
+  ->where('users.Department','like','%Marketing%')
+    ->whereDate('reports.created_at','>=',$mytime->startOfWeek())
+    ->whereDate('reports.created_at','<=',$mytime->endOfWeek())
+    ->count();
 
-            $countsIn = DB::table('Reports')
-            ->whereDate('created_at','>=',$mytime->startOfWeek())
-            ->whereDate('created_at','<=',$mytime->endOfWeek())
-           ->count();
+            $TC = report::leftJoin('users', function($join) {
+                $join->on('reports.User_id', '=', 'users.name');
+              })
+              ->where('users.Department','like','%Technical%')
+                ->whereDate('reports.created_at','>=',$mytime->startOfWeek())
+                ->whereDate('reports.created_at','<=',$mytime->endOfWeek())
+                ->count();
 
 
-            $countsOut = DB::table('Reports')
-            ->whereDate('created_at','>=',$mytime->startOfWeek())
-            ->whereDate('created_at','<=',$mytime->endOfWeek())
-           ->count();
+            $HRD = report::leftJoin('users', function($join) {
+                $join->on('reports.User_id', '=', 'users.name');
+              })
+              ->where('users.Department','like','%HRD%')
+                ->whereDate('reports.created_at','>=',$mytime->startOfWeek())
+                ->whereDate('reports.created_at','<=',$mytime->endOfWeek())
+                ->count();
 
 
-             $countsMiss = DB::table('Reports')
-             ->whereDate('created_at','>=',$mytime->startOfWeek())
-            ->whereDate('created_at','<=',$mytime->endOfWeek())
-           ->count();
+             $ADM = report::leftJoin('users', function($join) {
+                $join->on('reports.User_id', '=', 'users.name');
+              })
+              ->where('users.Department','like','%Admin%')
+                ->whereDate('reports.created_at','>=',$mytime->startOfWeek())
+                ->whereDate('reports.created_at','<=',$mytime->endOfWeek())
+                ->count();
+
+                $FNC = report::leftJoin('users', function($join) {
+                    $join->on('reports.User_id', '=', 'users.name');
+                  })
+                  ->where('users.Department','like','%finance%')
+                    ->whereDate('reports.created_at','>=',$mytime->startOfWeek())
+                    ->whereDate('reports.created_at','<=',$mytime->endOfWeek())
+                    ->count();
 
         //    return view('admin',compact('counts','countsIn','countsOut','countsMiss'));
-            return view('home',compact('counts','countsIn','countsOut','countsMiss'));
+            return view('home',compact('MKT','TC','HRD','ADM','FNC'));
     }
 }

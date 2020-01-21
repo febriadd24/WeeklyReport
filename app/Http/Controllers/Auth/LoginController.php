@@ -29,6 +29,7 @@ class LoginController extends Controller
      *
      * @var string
      */
+    protected $guard = 'admin';
     protected $redirectTo = '/home';
 
     /**
@@ -39,7 +40,6 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-        $this->middleware('guest:admin')->except('logout');
     }
 
     /**
@@ -52,7 +52,10 @@ public function showAdminLoginForm()
     {
         return view('auth.login', ['url' => 'admin']);
     }
-
+    public function guard()
+    {
+        return auth()->guard('admin');
+    }
     public function adminLogin(Request $request)
     {
         $this->validate($request, [
@@ -62,9 +65,9 @@ public function showAdminLoginForm()
 
         if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
 
-            return redirect()->intended('/admin');
+            return redirect()->route('admin.home');
         }
-        return back()->withInput($request->only('email', 'remember'));
+        return back()->withErrors(['email' => 'Email or password are wrong.']);
     }
 
     protected function validateLogin(Request $request)
@@ -88,12 +91,12 @@ public function showAdminLoginForm()
 
     if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
 
-        return redirect()->intended('/home');
+        return redirect()->route('home');
     }
     else {
 
     }
-    return back()->withInput($request->only('email', 'remember'));
+    return back()->withErrors(['email' => 'Email or password are wrong.']);
     }
 
     public function logout(Request $request)

@@ -26,7 +26,11 @@
             <div class="inner">
                 <h3>{{$MKT}}</h3>
 
+<<<<<<< HEAD
+                <p>Job Done</p>
+=======
                 <p>Marketing</p>
+>>>>>>> ac6359a3924165f7a39517665e764cc05e56b84d
             </div>
             <div class="icon">
                 <i class="fa fa-shopping-cart"></i>
@@ -43,7 +47,11 @@
             <div class="inner">
                 <h3>{{$TC}}<sup style="font-size: 20px"></sup></h3>
 
+<<<<<<< HEAD
+                <p>Job In Progress</p>
+=======
                 <p>Technical Support</p>
+>>>>>>> ac6359a3924165f7a39517665e764cc05e56b84d
             </div>
             <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -60,7 +68,11 @@
             <div class="inner">
                 <h3>{{$HRD}}</h3>
 
+<<<<<<< HEAD
+                <p>Job On Hold</p>
+=======
                 <p>HRD</p>
+>>>>>>> ac6359a3924165f7a39517665e764cc05e56b84d
             </div>
             <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -96,7 +108,11 @@
             <div class="inner">
                 <h3>{{$FNC}}</h3>
 
+<<<<<<< HEAD
+                <p>Job Stuck</p>
+=======
                 <p>Finance</p>
+>>>>>>> ac6359a3924165f7a39517665e764cc05e56b84d
             </div>
             <div class="icon">
                 <i class="ion ion-pie-graph"></i>

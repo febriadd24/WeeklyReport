@@ -133,40 +133,35 @@ class ReportController extends Controller
     public function dataTable(Request $request)
     {
         $from=$request->get('start_date');
-            $todate=$request->get('end_date');
+        $todate=$request->get('end_date');
+        $Username=$request->get('UserID');
 if (is_null($from) or is_null($todate))
 {
-    $model = report::with('DataUser')
-    ->where('User_id','=',Auth::user()->name)
-      ->get();
-} else
+$model = report::with('DataUser')
+  ->get();
+}
+elseif(!is_null($from) or is_null($todate))
 {
-    $model = report::with('DataUser')
-    ->where('User_id','=',Auth::user()->name)
-        ->whereDate('created_at','>=',$from)
-        ->whereDate('created_at','<=',$todate)
-        // ->groupBy('Days')
-        ->get();
+$model = report::with('DataUser')
+    ->whereDate('reports.created_at','>=',$from)
+    ->whereDate('reports.created_at','<=',$todate)
+    ->get();
 
 }
-        // $model =DB::table('reports')->select(['id','Project', 'Activity', 'Status', 'Detail', 'Remarks','User_id',])
-        // ->where(function($model)
-        // {$model->where('User_id','=',Auth::user()->name)
-        //     ->groupBy('Project');
-        // });
-        return DataTables::of($model)
-            ->addColumn('action', function ($model) {
-                return view('layouts._action', [
-                    'model' => $model,
-                    'url_show' => route('report.show', $model->id),
-                    'url_edit' => route('report.edit', $model->id),
-                    'url_destroy' => route('report.destroy', $model->id),
 
-                ]);
-            })
-            ->addIndexColumn()
-            ->rawColumns(['action'])
-            ->make(true);
+    return DataTables::of($model)
+        ->addColumn('action', function ($model) {
+            return view('layouts._action', [
+                'model' => $model,
+                'url_show' => route('report.show', $model->id),
+                'url_edit' => route('report.edit', $model->id),
+                'url_destroy' => route('report.destroy', $model->id),
+
+            ]);
+        })
+        ->addIndexColumn()
+        ->rawColumns(['action'])
+        ->make(true);
     }
 
 

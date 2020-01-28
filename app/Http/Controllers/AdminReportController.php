@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\report;
 use App\User;
+use App\Admin;
 use DB;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Auth;
@@ -17,6 +18,10 @@ class AdminReportController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
     public function index()
     {
         $Dept = User::pluck('Department');
@@ -151,10 +156,10 @@ if (is_null($from) or is_null($todate))
 }
 elseif($Username != 'All')
 {
-    $model = report::leftJoin('Users', function($join) {
-        $join->on('reports.User_id', '=', 'Users.name');
+    $model = report::leftJoin('users', function($join) {
+        $join->on('reports.User_id', '=', 'users.name');
       })
-      ->where('Users.name','like',$Username)
+      ->where('users.name','like',$Username)
         ->whereDate('reports.created_at','>=',$from)
         ->whereDate('reports.created_at','<=',$todate)
         ->get();
@@ -162,10 +167,10 @@ elseif($Username != 'All')
 }
 elseif($Department != 'Select' )
 {
-    $model = report::leftJoin('Users', function($join) {
-        $join->on('reports.User_id', '=', 'Users.name');
+    $model = report::leftJoin('users', function($join) {
+        $join->on('reports.User_id', '=', 'users.name');
       })
-      ->where('Users.Department','like',$Department)
+      ->where('users.Department','like',$Department)
         ->whereDate('reports.created_at','>=',$from)
         ->whereDate('reports.created_at','<=',$todate)
         ->get();
@@ -180,34 +185,6 @@ elseif(!is_null($from) or is_null($todate))
 
 }
 
-// else
-// {
-//     $model = report::with(['DataUser' =>function($query) use($Department){
-//     $query->where('Department','like',$Department)
-//     ->groupBy('id');
-//     }
-//     ])
-//     ->get();
-//         // ->whereDate('created_at','>=',$from)
-//         // ->whereDate('created_at','<=',$todate)
-
-
-// }
-
-// else
-// {
-//     $model = report::with('DataUser')
-//     ->where('Department','like',$Department)
-//     ->where('DataUser.id','=',$Username)
-//         ->whereDate('created_at','>=',$from)
-//         ->whereDate('created_at','<=',$todate)
-//         ->get();
-// }
-        // $model =DB::table('reports')->select(['id','Project', 'Activity', 'Status', 'Detail', 'Remarks','User_id',])
-        // ->where(function($model)
-        // {$model->where('User_id','=',Auth::user()->name)
-        //     ->groupBy('Project');
-        // });
         return DataTables::of($model)
             ->addColumn('action', function ($model) {
                 return view('layouts._action', [

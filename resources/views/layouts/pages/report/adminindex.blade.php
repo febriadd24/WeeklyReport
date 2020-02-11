@@ -62,6 +62,7 @@
                     <th>Project</th>
                     <th>Activity</th>
                     <th>Status</th>
+                    <th>Employee</th>
                     <th>Created_at</th>
                     <th>Detail</th>
                     <th>Remarks</th>
@@ -78,6 +79,7 @@
                     <th>Project</th>
                     <th>Activity</th>
                     <th>Status</th>
+                    <th>Employee</th>
                     <th>Created_at</th>
                     <th>Detail</th>
                     <th>Remarks</th>
@@ -110,6 +112,7 @@
                 {data: 'Project', name: 'Project'},
                 {data: 'Activity', name: 'Activity'},
                 {data: 'Status', name: 'Status'},
+                {data: 'User_id', name: 'User_id'},
                 {data: 'created_at', name: 'created_at'},
                 {data: 'Detail', name: 'Detail'},
                 {data: 'Remarks', name: 'Remarks'},

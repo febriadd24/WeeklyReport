@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\User;
-use DataTables;
+use Yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\Auth;
+use App\Admin;
 use Illuminate\Http\Request;
 class UserController extends Controller
 {
@@ -11,6 +13,11 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
     public function index()
     {
 

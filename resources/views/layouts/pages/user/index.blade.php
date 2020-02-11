@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appadmin')
 
 @section('content')
     <div class="panel panel-primary">
@@ -14,7 +14,8 @@
                     <th>No</th>
                     <th>Name</th>
                     <th>Email</th>
-                    <th></th>
+                    <th>Department</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -25,7 +26,8 @@
                     <th>No</th>
                     <th>Name</th>
                     <th>Email</th>
-                    <th></th>
+                    <th>Department</th>
+                    <th>Action</th>
                 </tr>
                 </tfoot>
             </table>
@@ -44,6 +46,7 @@
                 {data: 'id', name: 'id'},
                 {data: 'name', name: 'name'},
                 {data: 'email', name: 'email'},
+                {data: 'Department', name: 'Department'},
                 {data: 'action', name: 'action'}
             ]
         });

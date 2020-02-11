@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Foundation\Auth\Admin;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use Auth;
@@ -23,7 +24,7 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
-
+    use Admin;
     /**
      * Where to redirect users after login.
      *

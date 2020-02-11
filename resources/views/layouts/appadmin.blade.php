@@ -133,7 +133,7 @@
           </li>
           <!-- Control Sidebar Toggle Button -->
           <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+            {{-- <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a> --}}
           </li>
         </ul>
       </div>
@@ -220,19 +220,15 @@
             <li><a href="../charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
           </ul>
         </li>--}}
-        {{-- <li class="treeview">
-          <a href="#">
+        <li>
+          <a href="{{route('user.index')}}">
             <i class="fa fa-laptop"></i>
-            <span>Download Config</span>
+            <span>Employee List</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="../UI/general.html"><i class="fa fa-circle-o"></i> Aplikasi</a></li>
-            <li><a href="{{route('samkey.index')}}"><i class="fa fa-circle-o"></i> Key</a></li>
-          </ul>
-        </li> --}}
+        </li>
        {{-- <li class="treeview">
           <a href="#">
             <i class="fa fa-edit"></i> <span>Forms</span>

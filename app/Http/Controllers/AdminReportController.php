@@ -187,11 +187,11 @@ elseif(!is_null($from) or is_null($todate))
 
         return DataTables::of($model)
             ->addColumn('action', function ($model) {
-                return view('layouts._action', [
+                return view('layouts._Adminaction', [
                     'model' => $model,
-                    'url_show' => route('report.show', $model->id),
-                    'url_edit' => route('report.edit', $model->id),
-                    'url_destroy' => route('report.destroy', $model->id),
+                    'url_show' => route('Adminreport.show', $model->id),
+                    'url_edit' => route('Adminreport.edit', $model->id),
+                    'url_destroy' => route('Adminreport.destroy', $model->id),
 
                 ]);
             })

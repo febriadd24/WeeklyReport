@@ -10,7 +10,7 @@
                 @csrf
 
                 <input type="file" name="file" class="form-control">
-                <button class="btn btn-success">Import User Data</button>
+                <button class="btn btn-success">Import Report Data</button>
             </form>
         </div></div>
 @endsection

@@ -207,7 +207,7 @@
         </li>
         <li>
             <a href="{{route('importview')}}">
-              <i class="fa fa-th"></i> <span>Import Excel</span>
+              <i class="fa fa-file-excel-o"></i> <span>Import Excel</span>
               <span class="pull-right-container">
                 <small class="label pull-right bg-green">!!</small>
               </span>

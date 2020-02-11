@@ -30,8 +30,8 @@
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body>
-<div class="container" align="center">
+<body class="hold-transition login-page">
+<div class="login-box" align="center">
     <div class="row justify-content-center">
         <div class="login-box">
             <div class="login-box-body">

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Foundation\Auth\Admin;
+// use Illuminate\Foundation\Auth\Admin;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use Auth;
@@ -24,13 +24,13 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
-    use Admin;
+    // use Admin;
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $guard = 'admin';
+    // protected $guard = 'admin';
     protected $redirectTo = '/home';
 
     /**
@@ -41,6 +41,7 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+        // $this->middleware('auth:admin');
     }
 
     /**
